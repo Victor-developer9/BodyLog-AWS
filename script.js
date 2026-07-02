@@ -87,4 +87,26 @@ saveButton.addEventListener("click", function () {
     // 確認用
     console.log(bodyLog);
 
+    const jsonData = JSON.stringify(bodyLog);
+
+    console.log(jsonData);
+
+    fetch("https://example.com", {
+
+    method: "POST",
+
+    headers: {
+        "Content-Type": "application/json"
+    },
+
+    body: jsonData
+
+})
+.then(function(response) {
+    console.log(response);
+})
+.catch(function(error) {
+    console.log(error);
+});
+
 });
