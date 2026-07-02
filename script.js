@@ -91,7 +91,7 @@ saveButton.addEventListener("click", function () {
 
     console.log(jsonData);
 
-    fetch("https://example.com", {
+    fetch("https://zqfps20hwg.execute-api.ap-northeast-1.amazonaws.com/bodylog", {
 
     method: "POST",
 
