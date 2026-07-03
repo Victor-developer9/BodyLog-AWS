@@ -110,3 +110,41 @@ saveButton.addEventListener("click", function () {
 });
 
 });
+
+async function loadBodyLogs() {
+
+    const response = await fetch(
+        "https://zqfps20hwg.execute-api.ap-northeast-1.amazonaws.com/bodylog"
+    );
+
+    const data = await response.json();
+
+    console.log(data);
+
+    const list = document.getElementById("bodylogList");
+
+    list.innerHTML = "";
+
+    for (const item of data) {
+
+    const div = document.createElement("div");
+
+    div.innerHTML = `
+    <h3>${item.date}</h3>
+
+    <p><strong>体重：</strong>${item.weight} kg</p>
+
+    <p><strong>歩数：</strong>${item.steps} 歩</p>
+
+    <p><strong>睡眠：</strong>${item.sleep}</p>
+
+    <hr>
+    `;
+
+    list.appendChild(div);
+
+}
+
+}
+
+loadBodyLogs();
