@@ -138,6 +138,42 @@ async function loadBodyLogs() {
 
     <p><strong>睡眠：</strong>${item.sleep}</p>
 
+    <h4>朝食</h4>
+
+    <ul>
+    ${(item.breakfast || []).map(food => `<li>${food}</li>`).join("")}
+    </ul>
+    
+    <hr>
+
+    <h4>昼食</h4>
+
+    <ul>
+    ${(item.lunch || []).map(food => `<li>${food}</li>`).join("")}
+    </ul>
+    
+    <hr>
+
+    <h4>夕食</h4>
+
+    <ul>
+    ${(item.dinner || []).map(food => `<li>${food}</li>`).join("")}
+    </ul>
+
+    <hr>
+
+    <h4>間食</h4>
+
+    <ul>
+    ${(item.snack || []).map(food => `<li>${food}</li>`).join("")}
+    </ul>
+
+    <hr>
+
+    <h4>メモ</h4>
+
+    <p>${item.memo || ""}</p>
+
     <hr>
     `;
 
