@@ -1,3 +1,6 @@
+// グローバル変数
+let editingId = null;
+
 // 今日の日付を自動入力
 const today = new Date();
 
@@ -72,6 +75,7 @@ saveButton.addEventListener("click", function () {
 
     // BodyLogオブジェクト作成
     const bodyLog = {
+        id: editingId,
         date: date,
         weight: weight,
         steps: steps,
@@ -91,9 +95,11 @@ saveButton.addEventListener("click", function () {
 
     console.log(jsonData);
 
+    const method = editingId ? "PUT" : "POST";
+    
     fetch("https://zqfps20hwg.execute-api.ap-northeast-1.amazonaws.com/bodylog", {
 
-    method: "POST",
+    method: method,
 
     headers: {
         "Content-Type": "application/json"
@@ -174,10 +180,86 @@ async function loadBodyLogs() {
 
     <p>${item.memo || ""}</p>
 
+    <button class="editButton">編集</button>
+
+    <button class="deleteButton" data-id="${item.id}">削除</button>
+
     <hr>
     `;
 
     list.appendChild(div);
+
+    const editButton = div.querySelector(".editButton");
+
+    editButton.addEventListener("click", function () {
+
+    editingId = item.id;
+
+        // 基本情報
+    document.getElementById("date").value = item.date;
+    document.getElementById("weight").value = item.weight;
+    document.getElementById("steps").value = item.steps;
+    document.getElementById("sleep").value = item.sleep;
+
+    // 朝食
+    document.getElementById("breakfast1").value = item.breakfast[0];
+    document.getElementById("breakfast2").value = item.breakfast[1];
+    document.getElementById("breakfast3").value = item.breakfast[2];
+    document.getElementById("breakfast4").value = item.breakfast[3];
+    document.getElementById("breakfast5").value = item.breakfast[4];
+    document.getElementById("breakfast6").value = item.breakfast[5];
+
+    // 昼食
+    document.getElementById("lunch1").value = item.lunch[0];
+    document.getElementById("lunch2").value = item.lunch[1];
+    document.getElementById("lunch3").value = item.lunch[2];
+    document.getElementById("lunch4").value = item.lunch[3];
+    document.getElementById("lunch5").value = item.lunch[4];
+    document.getElementById("lunch6").value = item.lunch[5];
+
+    // 夕食
+    document.getElementById("dinner1").value = item.dinner[0];
+    document.getElementById("dinner2").value = item.dinner[1];
+    document.getElementById("dinner3").value = item.dinner[2];
+    document.getElementById("dinner4").value = item.dinner[3];
+    document.getElementById("dinner5").value = item.dinner[4];
+    document.getElementById("dinner6").value = item.dinner[5];
+
+    // 間食
+    document.getElementById("snack1").value = item.snack[0];
+    document.getElementById("snack2").value = item.snack[1];
+    document.getElementById("snack3").value = item.snack[2];
+    document.getElementById("snack4").value = item.snack[3];
+    document.getElementById("snack5").value = item.snack[4];
+    document.getElementById("snack6").value = item.snack[5];
+
+    // メモ
+    document.getElementById("memo").value = item.memo;
+    
+});
+
+    const deleteButton = div.querySelector(".deleteButton");
+
+    deleteButton.addEventListener("click", async function () {
+
+    const response = await fetch(
+        "https://zqfps20hwg.execute-api.ap-northeast-1.amazonaws.com/bodylog",
+        {
+            method: "DELETE",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                id: item.id
+            })
+        }
+    );
+
+    console.log(response);
+
+});
 
 }
 
