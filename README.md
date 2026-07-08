@@ -27,3 +27,5 @@ API Gateway
 Lambda
 ↓
 DynamoDB
+
+docs/![alt text](Version1.0.drawio.png)
