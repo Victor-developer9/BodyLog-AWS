@@ -1,5 +1,8 @@
 BodyLog AWS
 
+DEMOサイト
+http://body-log-aws-console-management.s3-website-ap-northeast-1.amazonaws.com
+
 AWSサーバーレス構成で作成したBodyLogアプリ
 
 使用技術
