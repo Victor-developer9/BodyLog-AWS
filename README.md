@@ -3,7 +3,12 @@ BodyLog AWS
 DEMOサイト
 http://body-log-aws-console-management.s3-website-ap-northeast-1.amazonaws.com
 
-AWSサーバーレス構成で作成したBodyLogアプリ
+AWSサーバーレス構成で作成中のBodyLogアプリ
+
+大会入賞を目指している自分が毎日簡単にできる記録付けのためのもの
+
+将来的に自分の筋トレ仲間にも使えるように数名限定でアカウント制にする
+その場合Amazon Cognitoでログインシステムを作成予定
 
 使用技術
 ・HTML
