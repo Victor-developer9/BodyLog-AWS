@@ -32,3 +32,18 @@ Lambda
 DynamoDB
 
 docs/![alt text](Version1.0.drawio.png)
+
+Version 1.0 まで
+・AWSサーバレスCRUDアプリ完成
+・S3
+・API Gateway
+・Lambda(Node.js)
+・DynamoDB
+・CloudWatch
+
+Version 1.1 まで
+・編集モード追加
+・更新ボタン切り替え
+・フォーム自動リセット
+・保存後一覧自動更新
+・画面スクロール改善

@@ -109,8 +109,20 @@ saveButton.addEventListener("click", function () {
 
 })
 .then(function(response) {
+
     console.log(response);
+
+    loadBodyLogs();
+
+    clearForm();
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
 })
+
 .catch(function(error) {
     console.log(error);
 });
@@ -236,6 +248,9 @@ async function loadBodyLogs() {
     // メモ
     document.getElementById("memo").value = item.memo;
     
+    // ボタン表示を変更
+    saveButton.textContent = "更新";
+
 });
 
     const deleteButton = div.querySelector(".deleteButton");
@@ -266,3 +281,38 @@ async function loadBodyLogs() {
 }
 
 loadBodyLogs();
+
+function clearForm() {
+
+    editingId = null;
+
+    document.getElementById("date").value = `${yyyy}-${mm}-${dd}`;
+    document.getElementById("weight").value = "";
+    document.getElementById("steps").value = "";
+    document.getElementById("sleep").value = "";
+
+    // 朝食
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById(`breakfast${i}`).value = "";
+    }
+
+    // 昼食
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById(`lunch${i}`).value = "";
+    }
+
+    // 夕食
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById(`dinner${i}`).value = "";
+    }
+
+    // 間食
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById(`snack${i}`).value = "";
+    }
+
+    document.getElementById("memo").value = "";
+
+    // ボタン表示を戻す
+saveButton.textContent = "保存";
+}
