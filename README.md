@@ -31,8 +31,6 @@ Lambda
 ↓
 DynamoDB
 
-docs/![alt text](Version1.0.drawio.png)
-
 Version 1.0 まで
 ・AWSサーバレスCRUDアプリ完成
 ・S3
@@ -47,3 +45,7 @@ Version 1.1 まで
 ・フォーム自動リセット
 ・保存後一覧自動更新
 ・画面スクロール改善
+・体重推移グラフ追加
+・Chart.js導入
+
+docs/![alt text](Version1.0.drawio.png)

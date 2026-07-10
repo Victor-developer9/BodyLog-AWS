@@ -139,6 +139,12 @@ async function loadBodyLogs() {
 
     console.log(data);
 
+    // 日付を取得
+    const labels = data.map(item => item.date);
+
+    // 体重を取得
+    const weights = data.map(item => Number(item.weight));
+
     const list = document.getElementById("bodylogList");
 
     list.innerHTML = "";
@@ -277,6 +283,21 @@ async function loadBodyLogs() {
 });
 
 }
+
+    const ctx = document.getElementById("weightChart");
+
+    new Chart(ctx, {
+        type: "line",
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "体重 (kg)",
+                data: weights,
+                borderWidth: 2,
+                tension: 0.3
+            }]
+        }
+    });
 
 }
 
