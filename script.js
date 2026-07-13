@@ -286,7 +286,11 @@ async function loadBodyLogs() {
 
     const ctx = document.getElementById("weightChart");
 
-    new Chart(ctx, {
+    if (weightChart) {
+        weightChart.destroy();
+    }
+
+    weightChart = new Chart(ctx, {
         type: "line",
         data: {
             labels: labels,
