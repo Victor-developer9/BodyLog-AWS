@@ -1,5 +1,6 @@
 // グローバル変数
 let editingId = null;
+let weightChart = null;
 
 // 今日の日付を自動入力
 const today = new Date();
