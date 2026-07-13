@@ -53,4 +53,4 @@ Version 1.1 まで
 ・体重推移グラフ追加
 ・Chart.js導入
 
-docs/![alt text](BodyLogAWS.drawio.png)
+<img width="1110" height="285" alt="BodyLogAWS drawio" src="https://github.com/user-attachments/assets/2d8cceb4-b0aa-4a44-a40b-0e4a5cf22204" />
